@@ -7,6 +7,7 @@ export const theme = {
         accent: '#ef0119',
         bgcButton: '#32CD32',
         bgcStat: '#FFFFE0',
+        delBtn: '#edb9b9',
     },
     space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
     fonts: {
