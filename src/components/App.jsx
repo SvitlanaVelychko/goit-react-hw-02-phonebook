@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
 import styled from "styled-components";
+import Notiflix from "notiflix";
 import ContactForm from "./ContactForm";
 import ContactList from "./ContactList";
 import Filter from "./Filter";
@@ -34,12 +35,12 @@ export class App extends Component {
     const newContact = { id: nanoid(), name, number };
 
     if (matcheContactName) {
-      return alert(`Sorry, ${name} is already in your contacts`);
+      return Notiflix.Notify.failure(`Sorry, ${name} is already in your contacts`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [newContact, ...prevState.contacts],
+      }));
     }
-    this.setState(prevState => ({
-      contacts: [newContact, ...prevState.contacts],
-    }))
-
     e.target.reset();
   };
   
