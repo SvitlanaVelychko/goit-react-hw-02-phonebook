@@ -1,10 +1,25 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
+import styled from "styled-components";
 import PropTypes from 'prop-types';
 import Section from "components/Section";
-import { Input, Label, Error, AddBtn } from './ContactForm.styled';
+import { Label, Error, AddBtn } from './ContactForm.styled';
 
+const Input = styled(Field)`
+    width: 100%;
+    height: 40px;
+    padding: ${p => p.theme.space[3]}px;
+    margin-bottom: ${p => p.theme.space[4]}px;
+    margin-top: ${p => p.theme.space[2]}px;
+    outline: none;
+    border: ${p => p.theme.borders.none};
+    border-radius: ${p => p.theme.radii.normal};
 
+    :hover, :focus {
+        border: ${p => p.theme.borders.normal};
+        border-color: ${p => p.theme.colors.bgcButton};
+    }
+`;
 
 const NAME_MATCH = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
 const nameError = "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan";
